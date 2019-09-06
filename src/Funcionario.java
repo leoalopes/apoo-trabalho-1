@@ -1,9 +1,10 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Funcionario {
-    private String nome;
-    private Double salario;
-    private Date admissao;
+    protected String nome;
+    protected Double salario;
+    protected Date admissao;
     
     public Funcionario(String nome, Double salario, Date admissao) {
         this.nome = nome;
@@ -12,23 +13,23 @@ public class Funcionario {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Double getSalario() {
-        return salario;
+    public String getSalario() {
+        return new Double(this.salario).toString();
     }
 
     public void setSalario(Double salario) {
         this.salario = salario;
     }
 
-    public Date getAdmissao() {
-        return admissao;
+    public String getAdmissao() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.admissao);
     }
 
     public void setAdmissao(Date admissao) {
@@ -38,6 +39,6 @@ public class Funcionario {
     public String toString() {
         return "Nome: " + this.nome + "\n" +
                "Salário: " + this.salario + "\n" +
-               "Data da admissão: " + this.admissao.toString();
+               "Data da admissão: " + new SimpleDateFormat("dd/MM/yyyy").format(this.admissao);
     }
 }
